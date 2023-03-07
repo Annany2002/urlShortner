@@ -26,7 +26,6 @@ const LinkResult = ({ inputValue }) => {
     }
   }
 
-
   useEffect(() => {
     if (inputValue.length) {
       fetchData();
@@ -43,23 +42,23 @@ const LinkResult = ({ inputValue }) => {
   //console.log(shortenLink)
 
   if (loading) {
-    return <p className="text-white text-3xl text-center">Loading...</p>
+    return <p className="text-white text-3xl text-center my-3">Loading...</p>
   }
 
   if (error) {
-    return <p className="text-white text-3xl text-center">Something went wrong... :(</p>
+    return <p className="text-gray-200 text-3xl text-center my-6">Something went wrong. . .  Please try again:( </p>
   }
 
   return (
     <>
       {shortenLink && (
-        <div className="m-auto flex flex-row px-3 sm:flex-row">
-          <p className="border-black border-2 px-2 text-white rounded-sm bg-transparent outline-none mx-4">{shortenLink}</p>
+        <div className="flex flex-col mx-auto justify-center p-3 sm:flex-row">
+          <p className="border-black border-2 px-2 text-white rounded-md bg-transparent outline-none font-serif mb-2 sm:mb-0">{shortenLink}</p>
           <CopyToClipboard
             text={shortenLink}
             onCopy={() => setCopied(true)}
           >
-            <button className={cn("bg-yellow-500 mx-3 px-3 rounded-xl text-white hover:bg-yellow-400", copied ? "copied" : "")}
+            <button className={cn("bg-yellow-500 mx-4 my-2 px-3 rounded-xl text-white hover:bg-yellow-400 sm:mx-6 sm:my-0", copied ? "copied" : "")}
             >
               Copy to clipboard
             </button>

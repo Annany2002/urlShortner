@@ -1,18 +1,20 @@
 import InputShortner from './InputShortner'
 import { useState } from 'react'
 import LinkResult from './LinkResult'
+import Footer from './Footer'
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
 
   return (
-    <div className="flex flex-col w-full h-screen bg-blue-600">
+    <div className='bg-teal-500 flex flex-col justify-center h-screen'>
       <InputShortner
         setInputValue={setInputValue} 
         />
       <LinkResult 
       inputValue={inputValue}
       />
+      <Footer/>
     </div>
   )
 }
