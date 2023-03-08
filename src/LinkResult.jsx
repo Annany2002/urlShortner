@@ -46,7 +46,7 @@ const LinkResult = ({ inputValue }) => {
   }
 
   if (error) {
-    return <p className="text-gray-200 text-3xl text-center my-6">Something went wrong. . .  Please try again:( </p>
+    return <p className="text-gray-300 text-3xl text-center my-6">Something went wrong. . .  Please try again  :( </p>
   }
 
   return (

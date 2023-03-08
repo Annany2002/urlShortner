@@ -7,7 +7,7 @@ const App = () => {
   const [inputValue, setInputValue] = useState("");
 
   return (
-    <div className='bg-teal-500 flex flex-col justify-center h-screen'>
+    <div className='bg-blue-600 flex flex-col justify-center h-screen'>
       <InputShortner
         setInputValue={setInputValue} 
         />
