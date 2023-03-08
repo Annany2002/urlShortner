@@ -11,8 +11,8 @@ const InputShortner = ({ setInputValue }) => {
 	return (
 		<div className="flex flex-col items-center -mt-16 md:-mt-10 mb-3">
 			<div className="flex flex-col my-4 sm:flex-row">
-				<h1 className="font-bold text-orange-500 px-2 text-6xl md:text-7xl text-center">URL</h1>
-				<h1 className="text-yellow-500 font-bold text-6xl px-2 md:text-7xl">Shortner</h1>
+				<h1 className="font-bold text-orange-500 px-2 tracking-wide text-6xl md:text-7xl text-center">URL</h1>
+				<h1 className="text-yellow-500 font-bold tracking-wide text-6xl px-2 md:text-7xl">Shortner</h1>
 			</div>
 			<input
 				type="text"
