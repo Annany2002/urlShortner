@@ -1,31 +1,38 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import CopyToClipboard  from 'react-copy-to-clipboard';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 function cn(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const LinkResult = ({ inputValue }) => {
+const LinkResult = ({ inputValue, data, setData }) => {
   // console.log(inputValue);
   const [shortenLink, setShortenLink] = useState("");
   //console.log(shortenLink);
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
+  
   const fetchData = async () => {
     try {
       setLoading(true);
       const res = await axios(`https://api.shrtco.de/v2/shorten?url=${inputValue}`);
-      setShortenLink(res.data.result.full_short_link);
+      let obj = {};
+      obj.id = res.data.result.code
+      obj.full_link = res.data.result.original_link
+      obj.short_link = res.data.result.short_link
+      let newOBJ = [obj, ...data]
+      setData(newOBJ)
+      localStorage.setItem('data', JSON.stringify(newOBJ))
+      console.log(data)
+      setShortenLink(res.data.result.short_link);
     } catch (err) {
       setError(err);
     } finally {
       setLoading(false);
     }
   }
-
   useEffect(() => {
     if (inputValue.length) {
       fetchData();
@@ -36,7 +43,6 @@ const LinkResult = ({ inputValue }) => {
     const timer = setTimeout(() => {
       setCopied(false);
     }, 1000);
-
     return () => clearTimeout(timer)
   }, [copied]);
   //console.log(shortenLink)
@@ -46,14 +52,15 @@ const LinkResult = ({ inputValue }) => {
   }
 
   if (error) {
-    return <p className="text-gray-300 text-3xl text-center my-6">Something went wrong. . .  Please try again  :( </p>
+    return <p className="text-gray-500 text-3xl text-center my-6">Something went wrong. . .  Please try again  :( </p>
   }
 
   return (
     <>
       {shortenLink && (
         <div className="flex flex-col mx-auto justify-center p-3 sm:flex-row">
-          <p className="border-black border-2 px-2 text-white rounded-md bg-transparent outline-none font-serif mb-2 sm:mb-0">{shortenLink}</p>
+          <p className="border-black border-2 px-2 text-white rounded-md bg-transparent outline-none font-serif mb-2 sm:mb-0"
+          >{shortenLink}</p>
           <CopyToClipboard
             text={shortenLink}
             onCopy={() => setCopied(true)}
