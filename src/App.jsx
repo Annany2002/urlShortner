@@ -9,7 +9,7 @@ const App = () => {
   const [ data, setData ] = useState(JSON.parse(localStorage.getItem('data')) || [])
 
   return (
-    <div className='bg-[#f8e5d1] flex flex-col justify-center h-auto'>
+    <div className='bg-[#f8e5d1] flex flex-col justify-center h-auto min-h-screen'>
       <InputShortner
         setInputValue={setInputValue}
       />

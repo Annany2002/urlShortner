@@ -27,7 +27,7 @@ const InputShortner = ({ setInputValue }) => {
 			/>
 			<button
 				onClick={handleClick}
-				className="uppercase bg-[#fca311] text-white border-none outline-none px-3 rounded-xl my-4 hover:bg-orange-300 hover:text-gray-100 font-thin"
+				className="uppercase bg-[#fca311] text-white border-none outline-none px-3 rounded-xl my-4 hover:bg-orange-500 hover:text-gray-100 font-thin"
 			>shorten</button>
 		</div>
 	)

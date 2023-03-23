@@ -26,7 +26,7 @@ export const RecentLinks = ({ data }) => {
               //   console.log('copied')
               // }}
             >
-              <button className="border-2 border-gray-600 px-2 rounded-md">
+              <button className="border-2 border-gray-900 font-mono tracking-wider bg-[#fca311] px-6 my-1 font-bold rounded-md">
                 Copy
               </button>
             </CopyToClipboard>
