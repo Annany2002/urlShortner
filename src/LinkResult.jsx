@@ -7,13 +7,11 @@ function cn(...classes) {
 }
 
 const LinkResult = ({ inputValue, data, setData }) => {
-  // console.log(inputValue);
   const [shortenLink, setShortenLink] = useState("");
-  //console.log(shortenLink);
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  
+
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -45,7 +43,6 @@ const LinkResult = ({ inputValue, data, setData }) => {
     }, 1000);
     return () => clearTimeout(timer)
   }, [copied]);
-  //console.log(shortenLink)
 
   if (loading) {
     return <p className="text-white text-3xl text-center my-3">Loading...</p>

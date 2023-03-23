@@ -7,10 +7,9 @@ import { RecentLinks } from './RecentLinks'
 const App = () => {
   const [inputValue, setInputValue] = useState("");
   const [ data, setData ] = useState(JSON.parse(localStorage.getItem('data')) || [])
-  //const [prevUrl, setPrevUrl] = useState("")
 
   return (
-    <div className='bg-[#f5ebe0] flex flex-col justify-center h-screen'>
+    <div className='bg-[#f8e5d1] flex flex-col justify-center h-screen'>
       <InputShortner
         setInputValue={setInputValue}
       />

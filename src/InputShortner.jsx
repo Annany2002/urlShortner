@@ -23,7 +23,7 @@ const InputShortner = ({ setInputValue }) => {
 				onChange={e => {
 					setValue(e.target.value)
 				}}
-				className="m-2 mx-auto px-3 rounded-xl font-mono tracking-tighter"
+				className="m-2 mx-auto px-3 py-2 rounded-sm font-mono tracking-tighter w-3/4 text-center"
 			/>
 			<button
 				onClick={handleClick}
