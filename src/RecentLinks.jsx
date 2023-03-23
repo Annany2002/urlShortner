@@ -1,6 +1,8 @@
 import CopyToClipboard from "react-copy-to-clipboard"
+import { useEffect } from "react"
 
-export const RecentLinks = ({ data }) => {
+export default function RecentLinks({ data, handleDelete}){
+
   return (
     <div className='flex flex-col items-center mt-0 justify-center md:grid md:grid-cols-2 lg:grid-cols-3'>
       {
@@ -22,14 +24,14 @@ export const RecentLinks = ({ data }) => {
             </p>
             <CopyToClipboard
               text={i.short_link}
-              // onCopy={() => {
-              //   console.log('copied')
-              // }}
             >
-              <button className="border-2 border-gray-900 font-mono tracking-wider bg-[#fca311] px-6 my-1 font-bold rounded-md">
+              <button className="border-2 border-gray-900 font-mono tracking-wider bg-[#fca311] mx-2 px-6 my-1 font-bold rounded-md">
                 Copy
               </button>
             </CopyToClipboard>
+            <button
+              onClick={(e) => handleDelete(i.id)}
+              className="border-2 border-gray-900 font-mono px-4 font-bold rounded-md bg-[#fca311] hover:bg-[#ffb133] my-1 mx-2">Remove</button>
           </div>
         )
       }

@@ -1,25 +1,33 @@
 import InputShortner from './InputShortner'
-import { useState } from 'react'
-import LinkResult from './LinkResult'
 import Footer from './Footer'
-import { RecentLinks } from './RecentLinks'
+import RecentLinks from './RecentLinks'
+
+import { useState } from 'react'
 
 const App = () => {
-  const [inputValue, setInputValue] = useState("");
   const [ data, setData ] = useState(JSON.parse(localStorage.getItem('data')) || [])
 
+  const handleDelete = (id) => {
+    let items = data
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].id === id) {
+        items.splice(i, 1);
+      }
+    }
+    setData([...items])
+    items = JSON.stringify(items);
+    localStorage.setItem("data", items);
+  }
+
   return (
-    <div className='bg-[#f8e5d1] flex flex-col justify-center h-auto min-h-screen'>
+    <div className='bg-[#f6e2cd] flex flex-col justify-center h-auto min-h-screen'>
       <InputShortner
-        setInputValue={setInputValue}
-      />
-      <LinkResult
-        inputValue={inputValue}
         data={data}
         setData={setData}
       />
       <RecentLinks
         data={data}
+        handleDelete={handleDelete}
       />
       <Footer />
     </div>
