@@ -4,7 +4,6 @@ const InputShortner = ({ setInputValue }) => {
 	const [value, setValue] = useState("");
 
 	const handleClick = () => {
-		//localStorage.setItem("link",value)
 		setInputValue(value);
 		setValue("");
 	}
@@ -27,7 +26,7 @@ const InputShortner = ({ setInputValue }) => {
 			/>
 			<button
 				onClick={handleClick}
-				className="uppercase bg-[#fca311] text-white border-none outline-none px-3 rounded-xl my-4 hover:bg-orange-500 hover:text-gray-100 font-thin"
+				className="uppercase bg-[#fca311] text-white border-none outline-none px-3 rounded-xl my-4 focus:bg-[#fca311] hover:bg-orange-500 hover:text-gray-100 font-thin"
 			>shorten</button>
 		</div>
 	)
