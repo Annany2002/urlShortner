@@ -34,16 +34,16 @@ const InputShortner = ({ data, setData, darkTheme, setDarkTheme }) => {
 
 	return (
 		<div className="flex flex-col items-center mb-3">
-			<button className='ml-auto px-6 py-2'
-				type="button"
-				onClick={() =>
-					setDarkTheme(!darkTheme)
-				}>
-				{darkTheme ? <Sun size={34} color={'#fff'} weight='fill' /> : <MoonStars size={34} weight="fill" />}
-			</button>
-			<div className="flex flex-col my-4 sm:flex-row">
+			<div className="flex flex-col my-4 sm:flex-row mb-8">
 				<h1 className="font-bold text-[#fca311] px-2 tracking-wide text-6xl md:text-7xl text-center dark:text-[#eae2b7]">URL</h1>
 				<h1 className="text-[#14213d] dark:text-[#e5e5e5] font-bold tracking-wide text-6xl px-2 md:text-7xl">Shortner</h1>
+					<button className='ml-10 px-6 py-2 items-right'
+						type="button"
+						onClick={() =>
+							setDarkTheme(!darkTheme)
+						}>
+						{darkTheme ? <Sun size={34} color={'#fff'} weight='fill' /> : <MoonStars size={34} weight="fill" />}
+					</button>
 			</div>
 			<input
 				type="text"
@@ -56,7 +56,7 @@ const InputShortner = ({ data, setData, darkTheme, setDarkTheme }) => {
 			/>
 			<button
 				onClick={handleClick}
-				className="uppercase bg-[#fca311] text-[#14213d] border-none font-mono tracking-wider outline-none px-3 rounded-xl my-4 focus:bg-[#fca311] hover:bg-orange-500 hover:text-gray-100 font-bold dark:text-[#e5e5e5]"
+				className="uppercase bg-[#fca311] text-[#14213d] text-lg border-none font-mono tracking-wider outline-none px-4 rounded-xl my-4 focus:bg-[#fca311] hover:bg-orange-500 hover:text-gray-100 font-bold dark:text-[#e5e5e5] sm:text-2xl sm:px-6"
 			>shorten</button>
 			{
 				loading && <p className="font-thin text-md sm:text-2xl lg:text-3xl font-serif text-[#14213d] tracking-widest">
