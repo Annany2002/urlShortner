@@ -5,7 +5,12 @@ import RecentLinks from './RecentLinks'
 import { useState } from 'react'
 
 const App = () => {
-  const [ data, setData ] = useState(JSON.parse(localStorage.getItem('data')) || [])
+  const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) || []);
+  const [darkTheme, setDarkTheme] = useState(false);
+
+  function cn(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
 
   const handleDelete = (id) => {
     let items = data
@@ -20,16 +25,20 @@ const App = () => {
   }
 
   return (
-    <div className='bg-[#f6e2cd] flex flex-col justify-center h-auto min-h-screen'>
-      <InputShortner
-        data={data}
-        setData={setData}
-      />
-      <RecentLinks
-        data={data}
-        handleDelete={handleDelete}
-      />
-      <Footer />
+    <div className={darkTheme ? 'dark' : ' '}>
+      <div className='bg-[#f6e2cd] flex flex-col justify-center h-auto min-h-screen dark:bg-[#14213d]'>
+        <InputShortner
+          data={data}
+          setData={setData}
+          darkTheme={darkTheme}
+          setDarkTheme={setDarkTheme}
+        />
+        <RecentLinks
+          data={data}
+          handleDelete={handleDelete}
+        />
+        <Footer />
+      </div>
     </div>
   )
 }
